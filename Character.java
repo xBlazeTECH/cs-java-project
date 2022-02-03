@@ -1,9 +1,10 @@
 import java.util.Scanner;
 public class Character {
-  private int attack;
-  private int hp;
-  private String name;
-  private int gold = 500;
+  private int attack; // Character's Attack
+  private int hp; // Character's Health
+  private String name; // Character's Name
+  private int gold = 500; // Character's Gold
+
   public Character(String name, int hp, int attack){
     this.attack = attack;
     this.hp = hp;
@@ -12,7 +13,7 @@ public class Character {
   public void setGold(int g){
     this.gold = g;
   }
-  public void setAttack (int a){
+  public void setAttack(int a){
     this.attack = a;
   }
   public void setHp(int h) {
@@ -33,6 +34,8 @@ public class Character {
   public String getName(){
     return this.name;
   }
+
+  // Buy Item from Shop
   public void buy(Item item){
     Scanner scan = new Scanner(System.in);
     System.out.println(item.getName()+" will cost "+item.getPrice()+" gold. How many "+item.getName()+"s would you like to buy?");
@@ -45,6 +48,8 @@ public class Character {
       System.out.println("You have"+this.getGold()+"gold left!");
     }  
   }
+
+  // Battle in the Arena
   public void battle(Character enemy){
     while(this.getHp() > 0 && enemy.getHp() > 0){
       System.out.println("It's your turn, what would you like to do?");

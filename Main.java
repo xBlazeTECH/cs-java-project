@@ -29,7 +29,7 @@ class Main {
     System.out.println("3. Dragon Day Care");
     System.out.println("4. Village Outskirts");
 
-    // Initialize Console Scanner
+    // Scan for Player input
     Scanner scan = new Scanner(System.in);
     int choice = scan.nextInt();
 
@@ -41,7 +41,7 @@ class Main {
       choice = scan.nextInt();
       if(choice == 1){
         System.out.println("You've entered a fight!");
-        raghav.battle(inmate);  
+        raghav.battle(inmate);
       }
     }
 
