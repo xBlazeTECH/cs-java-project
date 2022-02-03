@@ -1,9 +1,21 @@
-import java.util.Scanner;
+import java.util.*;
 public class Character {
   private int attack; // Character's Attack
   private int hp; // Character's Health
   private String name; // Character's Name
   private int gold = 500; // Character's Gold
+
+  // New Code
+  private List<Item> items = new ArrayList<Item>();
+  private Item equipped;
+  public void addItem(Item i) {
+    items.add(i);
+  }
+  public List<Item> getItems() {
+    return items;
+  }
+
+  // End New Code
 
   public Character(String name, int hp, int attack){
     this.attack = attack;
@@ -45,12 +57,19 @@ public class Character {
     } else {
       System.out.println("You bought"+quantity+" "+item.getName()+"!");
       this.setGold(this.getGold()-quantity*item.getPrice());
+
+      // NEW CODE
+      this.addItem(item);
+
+      // END NEW CODE
+
       System.out.println("You have"+this.getGold()+"gold left!");
     }  
   }
 
   // Battle in the Arena
   public void battle(Character enemy){
+
     while(this.getHp() > 0 && enemy.getHp() > 0){
       System.out.println("It's your turn, what would you like to do?");
       System.out.println("1. Attack");
@@ -58,9 +77,18 @@ public class Character {
       Scanner sc = new Scanner(System.in);
       int choice = sc.nextInt();
       if(choice == 1){
+        // NEW Code
+        int strength = this.getAttack();
+        if (!this.items.isEmpty()) {
+          this.equipped = items.get(0);
+          System.out.println("Equipping your " + this.equipped.getName());
+          strength = strength + this.equipped.getPower();
+        }
+
+        // END NEW CODE
         System.out.println("You attacked!");
-        enemy.setHp(enemy.getHp() - this.getAttack());
-        System.out.println(this.getName() + " did " + this.getAttack() + " damage ");
+        enemy.setHp(enemy.getHp() - strength); // Change to strength.
+        System.out.println(this.getName() + " did " + strength + " damage "); // Change to strength.
         if(enemy.getHp() <= 0){
           enemy.setHp(0);
           System.out.println(enemy.getName() + " has " + enemy.getHp() + " hp left! ");
@@ -74,6 +102,9 @@ public class Character {
         if(this.getHp() <= 0) {
           this.setHp(0);
           System.out.println("Inmate wins!");
+          // NEW CODE
+          break;
+          // END NEW CODE
         }
         System.out.println(this.getName() + " has " + this.getHp() + " hp left! ");
       } else if(choice == 2) {

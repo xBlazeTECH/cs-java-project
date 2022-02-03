@@ -1,0 +1,10 @@
+1. Play our game. (5 mins)
+2. Go through code, and add documentation. (~5 mins)
+3. Create loop around menu. (~5 mins)
+4. Add Power to Item Object (~5 mins)
+5. Add Power to Item Object Instantiation (~2 mins)
+6. Change Import statement to import java.util.*; (~2 mins)
+7. Create new inventory array on character class. ()
+8. Add item to inventory when purchased.
+7. Equip item when attacking and adjust strength
+8. Change this.getAttack to strength.
