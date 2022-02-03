@@ -1,4 +1,5 @@
 import java.util.Scanner;
+
 class Main {
   public static void main(String[] args) {
     // Print out Hello World!
@@ -8,8 +9,8 @@ class Main {
     boolean playingGame = true;
 
     // Create our Characters
-    Character raghav = new Character("raghav",100, 7);
-    Character inmate = new Character("inmate",100, 5);
+    Character raghav = new Character("raghav", 100, 7);
+    Character inmate = new Character("inmate", 100, 5);
 
     // Create our Items
     Item ironSword = new Item("Iron Sword", 500, 10); // Add Power Parameter
@@ -19,9 +20,7 @@ class Main {
     Item SwordofGodsandHeavens = new Item("Sword of Gods and Heavens", 1000000, 30); // Add Power Parameter
 
     // Create a weapon shop
-    Item[] weaponShop = new Item[]{
-      ironSword,thornySword,goldenSword,SwordofWrath,SwordofGodsandHeavens
-    };
+    Item[] weaponShop = new Item[] { ironSword, thornySword, goldenSword, SwordofWrath, SwordofGodsandHeavens };
 
     System.out.println(weaponShop[0].getName());
 
@@ -38,19 +37,19 @@ class Main {
       int choice = scan.nextInt();
 
       // Choice 1: Enter the Arena
-      if(choice == 1){
+      if (choice == 1) {
         System.out.println("Welcome to the arena! What would you like to do?");
         System.out.println("1. Fight");
         System.out.println("2. Leave");
         choice = scan.nextInt();
-        if(choice == 1){
+        if (choice == 1) {
           System.out.println("You've entered a fight!");
           raghav.battle(inmate);
         }
       }
 
       // Choice 2: Weapons Shop
-      if(choice == 2){
+      if (choice == 2) {
         System.out.println("Welcome to our village weapons shop! What would you like to buy?");
         System.out.println("1. Iron Sword");
         System.out.println("2. Thorny Sword");
@@ -58,9 +57,8 @@ class Main {
         System.out.println("4. Sword of Wrath");
         System.out.println("5 Sword of Gods and Heavens");
         choice = scan.nextInt();
-        raghav.buy(weaponShop[choice-1]);
+        raghav.buy(weaponShop[choice - 1]);
       }
     }
   }
 }
-   
